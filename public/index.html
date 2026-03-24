@@ -1,150 +1,105 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
-
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/12.11.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/12.11.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/12.11.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/12.11.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/12.11.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/12.11.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/12.11.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/12.11.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/12.11.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/12.11.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
-</html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ontrack Blogs</title>
 
-  <title>Ontrack Blog | Bike Rental Guides & Tips</title>
-  <meta name="description" content="Explore bike rental guides, tips, pricing insights and travel blogs from Ontrack.">
+  <!-- SEO -->
+  <meta name="description" content="Explore latest bike rental blogs, tips, and guides from Ontrack." />
 
-  <!-- Bootstrap CDN -->
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://your-username.github.io/blog-site/">
-
+  <style>
+    body {
+      background: #f8f9fa;
+    }
+    .blog-card {
+      transition: 0.2s;
+      cursor: pointer;
+    }
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
-
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="/">Ontrack Blog</a>
-    </div>
+<div class="container py-5">
+
+  <h1 class="mb-4 text-center">🚀 Ontrack Blogs</h1>
+
+  <div id="blogList" class="row g-4"></div>
+
+  <!-- Pagination -->
+  <nav class="mt-5">
+    <ul id="pagination" class="pagination justify-content-center"></ul>
   </nav>
 
-  <!-- Hero -->
-  <div class="container text-center mt-5">
-    <h1 class="fw-bold">Welcome to Ontrack Blog</h1>
-    <p class="text-muted mt-3">
-      Bike rental guides, pricing insights, and travel tips — all in one place.
-    </p>
-  </div>
+</div>
 
-  <!-- Blog Section -->
-  <div class="container mt-5">
-    <h2 class="mb-4">Latest Blogs</h2>
+<script>
+const BLOGS_PER_PAGE = 6;
 
-    <div class="row">
+function getPage() {
+  const params = new URLSearchParams(window.location.search);
+  return parseInt(params.get("page")) || 1;
+}
 
-      <!-- Blog Card -->
+function renderBlogs(blogs, page) {
+  const container = document.getElementById("blogList");
+  container.innerHTML = "";
+
+  const start = (page - 1) * BLOGS_PER_PAGE;
+  const paginated = blogs.slice(start, start + BLOGS_PER_PAGE);
+
+  paginated.forEach(blog => {
+    container.innerHTML += `
       <div class="col-md-4">
-        <div class="card mb-4">
-          <div class="card-body">
-            <h5 class="card-title">How to Rent a Bike in Bangalore</h5>
-            <p class="card-text">A complete beginner-friendly guide.</p>
-            <a href="/blog/how-to-rent-bike-bangalore.html" class="btn btn-primary">Read</a>
+        <a href="/public${blog.url}" style="text-decoration:none; color:inherit;">
+          <div class="card blog-card h-100 p-3">
+            <h5>${blog.title}</h5>
+            <p class="text-muted small">${new Date(blog.updatedAt).toDateString()}</p>
           </div>
-        </div>
+        </a>
       </div>
+    `;
+  });
+}
 
-    </div>
-  </div>
+function renderPagination(totalBlogs, currentPage) {
+  const totalPages = Math.ceil(totalBlogs / BLOGS_PER_PAGE);
+  const pagination = document.getElementById("pagination");
+  pagination.innerHTML = "";
 
-  <!-- Footer -->
-  <footer class="text-center mt-5 mb-3 text-muted">
-    © 2026 Ontrack Blog
-  </footer>
+  for (let i = 1; i <= totalPages; i++) {
+    pagination.innerHTML += `
+      <li class="page-item ${i === currentPage ? "active" : ""}">
+        <a class="page-link" href="?page=${i}">${i}</a>
+      </li>
+    `;
+  }
+}
+
+async function init() {
+  try {
+    const res = await fetch("/public/blogs.json");
+    const blogs = await res.json();
+
+    const page = getPage();
+
+    renderBlogs(blogs, page);
+    renderPagination(blogs.length, page);
+
+  } catch (err) {
+    document.getElementById("blogList").innerHTML = "<p>Error loading blogs</p>";
+  }
+}
+
+init();
+</script>
 
 </body>
 </html>
