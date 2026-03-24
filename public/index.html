@@ -58,7 +58,7 @@ function renderBlogs(blogs, page) {
   paginated.forEach(blog => {
     container.innerHTML += `
       <div class="col-md-4">
-        <a href="/public${blog.url}" style="text-decoration:none; color:inherit;">
+        <a href="${blog.url}" style="text-decoration:none; color:inherit;">
           <div class="card blog-card h-100 p-3">
             <h5>${blog.title}</h5>
             <p class="text-muted small">${new Date(blog.updatedAt).toDateString()}</p>
