@@ -85,7 +85,7 @@ function renderPagination(totalBlogs, currentPage) {
 
 async function init() {
   try {
-    const res = await fetch("/public/blogs.json");
+    const res = await fetch("/blogs.json");
     const blogs = await res.json();
 
     const page = getPage();
